@@ -1,0 +1,23 @@
+.dsf-container-card-prod {
+  background-color: var(--dsf-color-bg-tertiary);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.dsf-card-product {
+  border: solid 1px var(--dsf-color-bg-primary);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.dsf-product-name {
+  font-size: 12px;
+  color: var(--dsf-color-font-secondary);
+}
+
+.dsf-product-price {
+  color: var(--dsf-color-font-tertiary);
+  font-weight: 700;
+  font-size: 16px;
+}
