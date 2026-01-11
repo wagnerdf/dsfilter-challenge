@@ -2,14 +2,14 @@ import { useState } from "react";
 import "./styles.css";
 
 type FormData = {
-  numberMin?: number;
-  numberMax?: number;
+  min?: number;
+  max?: number;
 };
 
 export default function FilterProductCard() {
   const [formData, setFormData] = useState<FormData>({
-    numberMin: undefined,
-    numberMax: undefined,
+    min: undefined,
+    max: undefined,
   });
 
   function handleInputChange(event: any) {
@@ -20,8 +20,8 @@ export default function FilterProductCard() {
 
   function handleSubmit(event: any){
     event.preventDefault();
-    console.log(formData.numberMin || 0);
-    console.log(formData.numberMax || Number.MAX_VALUE);
+    console.log(formData.min || 0);
+    console.log(formData.max || Number.MAX_VALUE);
   }
 
   return (
@@ -30,8 +30,8 @@ export default function FilterProductCard() {
         <form onSubmit={handleSubmit}>
           <div>
             <input
-              name="numberMin"
-              value={formData.numberMin || ""}
+              name="min"
+              value={formData.min || ""}
               type="text"
               placeholder="Preço mínimo"
               onChange={handleInputChange}
@@ -39,8 +39,8 @@ export default function FilterProductCard() {
           </div>
           <div>
             <input
-              name="numberMax"
-              value={formData.numberMax || ""}
+              name="max"
+              value={formData.max || ""}
               type="text"
               placeholder="Preço máximo"
               onChange={handleInputChange}

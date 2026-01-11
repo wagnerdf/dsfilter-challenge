@@ -1,15 +1,22 @@
 import "./styles.css";
+import type { ProductDTO } from "../../models/ProductDTO";
+import * as productService from "../../services/product-service";
+import { useState } from "react";
 
 export default function ListProductCard() {
-  const products = Array.from({ length: 6 });
+  const [products] = useState<ProductDTO[]>(() =>
+    productService.findByPrice(0, Number.MAX_VALUE)
+  );
 
   return (
     <div className="container">
       <div className="dsf-container-card-prod">
-        {products.map((_, index) => (
-          <div className="dsf-card-product" key={index}>
-            <p className="dsf-product-name">PC Gamer Pro</p>
-            <p className="dsf-product-price">R$ 1200.00</p>
+        {products.map((product) => (
+          <div className="dsf-card-product" key={product.id}>
+            <p className="dsf-product-name">{product.name}</p>
+            <p className="dsf-product-price">
+              R$ {product.price.toFixed(2)}
+            </p>
           </div>
         ))}
       </div>
