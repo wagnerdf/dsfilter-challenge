@@ -5,7 +5,7 @@
   margin-bottom: -22px;
 }
 
-#dsf-inpt {
+.dsf-container-card-form input{
   width: 100%;
   max-width: 200px;
   height: 40px;
@@ -18,11 +18,11 @@
   margin-bottom: 20px;
 }
 
-#dsf-inpt::placeholder {
+.dsf-container-card-form input::placeholder {
   color: var(--dsf-color-bg-secondary);
 }
 
-.dsf-btn {
+.dsf-container-card-form button {
   background-color: var(--dsf-color-bg-primary);
   color: var(--dsf-color-font-primary);
   font-weight: 700;
