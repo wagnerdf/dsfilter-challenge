@@ -1,16 +1,15 @@
+import { useContext } from "react";
 import "./styles.css";
+import { ProductCountContext } from "../../utils/context-product";
 
-type Props = {
-  total: number;
-};
+export default function Header() {
+  const { productCount } = useContext(ProductCountContext);
 
-export default function Header({ total }: Props) {
   return (
-    <>
-      <div className="container dsf-title-header">
-        <h1>DSFilter</h1>
-        <p>{total} Produto(s)</p>
-      </div>
-    </>
+    <div className="container dsf-title-header">
+      <h1>DSFilter</h1>
+      <p>{productCount} Produto(s)</p>
+    </div>
   );
 }
+
