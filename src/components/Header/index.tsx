@@ -1,11 +1,15 @@
 import "./styles.css";
 
-export default function Header() {
+type Props = {
+  total: number;
+};
+
+export default function Header({ total }: Props) {
   return (
     <>
       <div className="container dsf-title-header">
         <h1>DSFilter</h1>
-        <p>6 Produto(s)</p>
+        <p>{total} Produto(s)</p>
       </div>
     </>
   );

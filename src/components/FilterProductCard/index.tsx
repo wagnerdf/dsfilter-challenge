@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import "./styles.css";
 
 type FormData = {
@@ -6,22 +7,26 @@ type FormData = {
   max?: number;
 };
 
-export default function FilterProductCard() {
+type Props = {
+  onFilter: (min: number, max: number) => void;
+};
+
+export default function FilterProductCard({ onFilter }: Props) {
   const [formData, setFormData] = useState<FormData>({
     min: undefined,
     max: undefined,
   });
 
-  function handleInputChange(event: any) {
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
     const name = event.target.name;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: Number(value) });
   }
 
-  function handleSubmit(event: any){
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(formData.min || 0);
-    console.log(formData.max || Number.MAX_VALUE);
+
+    onFilter(formData.min || 0, formData.max || Number.MAX_VALUE);
   }
 
   return (
@@ -32,7 +37,7 @@ export default function FilterProductCard() {
             <input
               name="min"
               value={formData.min || ""}
-              type="text"
+              type="number"
               placeholder="Preço mínimo"
               onChange={handleInputChange}
             />
@@ -41,7 +46,7 @@ export default function FilterProductCard() {
             <input
               name="max"
               value={formData.max || ""}
-              type="text"
+              type="number"
               placeholder="Preço máximo"
               onChange={handleInputChange}
             />
